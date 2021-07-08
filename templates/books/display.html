@@ -8,20 +8,22 @@
 
 $(document).ready(function(){
   $('.genreCheckValue').click(function(){
-    var txt = " ";
+    var txt = "";
     $('.genreCheckValue:checked').each(function(){
-      txt +=$(this).val()+" ";
-    });
+      txt +=$(this).val()+", ";
+    })
+    txt = txt.substring(0,txt.length-2);
     $('#genrefield').val(txt);
   });
 });
 
 $(document).ready(function(){
   $('.languageCheckValue').click(function(){
-    var txt = " ";
+    var txt = "";
     $('.languageCheckValue:checked').each(function(){
-      txt +=$(this).val()+" ";
-    });
+      txt +=$(this).val()+", ";
+    })
+    txt = txt.substring(0,txt.length-2);
     $('#languagefield').val(txt);
   });
 });
@@ -36,12 +38,14 @@ $(document).ready(function(){
 
 <h1 class="py-4 text-center">Books Available: -</h1>
 
-<h2>Filter: -</h2>
+<h2 class="mx-4">Filter: -</h2>
 
-<form action="" method="POST">
+<form action="/display" method="POST">
+  {% csrf_token %}
+  <p>
   <div class="dropdown">
     <a
-      class="btn dropdown-toggle"
+      class="btn dropdown-toggle mx-3"
       href="#"
       role="button"
       id="dropdownMenuLink"
@@ -57,13 +61,11 @@ $(document).ready(function(){
       <li style="width: 70%;"><input type="checkbox" value="{{genre}}" style="width: 300px" class="dropdown-item genreCheckValue"  ></li>
     {% endfor %}
     </ul>
-    <input type="text" name="genre" id="genrefield"></input>
+    <input type="text" name="genreSelected" id="genrefield" class="mx-5" style="width: 300px;" disabled></input>
   </div>
-
-  <form action="" method="POST">
   <div class="dropdown">
     <a
-      class="btn dropdown-toggle"
+      class="btn dropdown-toggle mx-3"
       href="#"
       role="button"
       id="dropdownMenuLink"
@@ -75,12 +77,14 @@ $(document).ready(function(){
 
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     {% for language in languages %}
+      <label for="" style="float: left" >{{language}}</label>
       <li><input type="checkbox" value="{{language}}" class="dropdown-item languageCheckValue" ></input></li>
     {% endfor %}
     </ul>
-    <input type="text" name="language" id="languagefield"></input>
+    <input type="text" name="languageSelected" id="languagefield" class="mx-3" style="width: 300px;" disabled></input>
   </div>
-
+  </p>
+  <input class="btn btn-success mx-4 " type="submit" value="Search" style="width: 150px;">
   <table class="table">
     <thead>
       <tr>

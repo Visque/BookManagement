@@ -2,18 +2,18 @@ from django.db import models
 
 # Create your models here.
 GENRE_CHOICES =[
-    ("1", "Educational"),
-    ("2", "Fairy Tales"),
-    ("3", "Mystery"),
-    ("4", "Fictional"),
+    ("Educational", "Educational"),
+    ("Fairy Tales", "Fairy Tales"),
+    ("Mystery", "Mystery"),
+    ("Fictional", "Fictional"),
 ]
 
 LANGUAGE_CHOICES =[
-    ("1", "English"),
-    ("2", "German"),
-    ("3", "Chinese"),
-    ("4", "French"),
-    ("5", "Japanse"),
+    ("English", "English"),
+    ("German", "German"),
+    ("Chinese", "Chinese"),
+    ("French", "French"),
+    ("Japanese", "Japanese"),
 ]
 
 class BookInfo(models.Model):

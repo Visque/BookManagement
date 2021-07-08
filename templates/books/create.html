@@ -1,42 +1,30 @@
-{% extends 'base.html' %} {% block title %}Add{% endblock title %} 
+{% extends 'base.html' %} {% block title %}Create{% endblock title %} 
 {% block body %}
 
-<h1 class="text-center my-5">Enter the Book details: -</h1>
-
-<form action="/create" method="POST" class="text-center">
+<div class="mb-3">
+  <form action="/create" method="POST" class="text-center">
+    <h1 class="mx-4 my-5">Enter the Book details: -</h1>
     {% csrf_token %}
-  <div class="mb-3 from">
-    {{form.as_p}}
-  </div>
-  {% comment %} <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label"
-      >Example textarea</label
+    <div class="mx-4 my-3">{{form.as_p}}</div>
+    <input class="btn btn-outline-success" type="submit" value="Submit" />
+</div>
+{% if formFilled %}
+<div class="d-flex align-items-center my-3">
+  <div
+    class="alert alert-success text-center"
+    role="alert"
+    style="margin-left: 810px"
+  >
+    <svg
+      class="bi flex-shrink-0 me-2"
+      width="24"
+      height="24"
+      role="img"
+      aria-label="Success:"
     >
-    <textarea
-      class="form-control"
-      id="exampleFormControlTextarea1"
-      rows="3"
-    ></textarea>
-  </div> {% endcomment %}
-  <input class="btn btn-outline-success" type="submit" value="Submit">
-</form>
-
-{% if formFilled %} 
-<div class=" d-flex align-items-center my-3">
-
-<div class="alert alert-success text-center" role="alert" style="margin-left: 810px;">
-        <svg
-          class="bi flex-shrink-0 me-2"
-          width="24"
-          height="24"
-          role="img"
-          aria-label="Success:"
-        >
-          <use xlink:href="#check-circle-fill" />
-        </svg>
-        <div>Thank You.... Your form has been submitted</div>
+      <use xlink:href="#check-circle-fill" />
+    </svg>
+    <div>Thank You.... Your form has been submitted</div>
   </div>
 </div>
-{% endif %} 
-
-{% endblock body %}
+{% endif %} {% endblock body %}
