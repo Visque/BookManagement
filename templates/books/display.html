@@ -1,0 +1,107 @@
+{% extends 'base.html' %} 
+
+
+{% block head %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+  $('.genreCheckValue').click(function(){
+    var txt = " ";
+    $('.genreCheckValue:checked').each(function(){
+      txt +=$(this).val()+" ";
+    });
+    $('#genrefield').val(txt);
+  });
+});
+
+$(document).ready(function(){
+  $('.languageCheckValue').click(function(){
+    var txt = " ";
+    $('.languageCheckValue:checked').each(function(){
+      txt +=$(this).val()+" ";
+    });
+    $('#languagefield').val(txt);
+  });
+});
+
+</script>
+
+{% endblock head %}
+
+
+{% block title %}Display{% endblock title %} 
+{% block body %}
+
+<h1 class="py-4 text-center">Books Available: -</h1>
+
+<h2>Filter: -</h2>
+
+<form action="" method="POST">
+  <div class="dropdown">
+    <a
+      class="btn dropdown-toggle"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Filter by Genre
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for genre in genres %}
+      <label for="" style="float: left" >{{genre}}</label>
+      <li style="width: 70%;"><input type="checkbox" value="{{genre}}" style="width: 300px" class="dropdown-item genreCheckValue"  ></li>
+    {% endfor %}
+    </ul>
+    <input type="text" name="genre" id="genrefield"></input>
+  </div>
+
+  <form action="" method="POST">
+  <div class="dropdown">
+    <a
+      class="btn dropdown-toggle"
+      href="#"
+      role="button"
+      id="dropdownMenuLink"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Filter by Languages
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    {% for language in languages %}
+      <li><input type="checkbox" value="{{language}}" class="dropdown-item languageCheckValue" ></input></li>
+    {% endfor %}
+    </ul>
+    <input type="text" name="language" id="languagefield"></input>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+      <tr>
+        <th scope="row"></th>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.language}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+{% endblock body %}
