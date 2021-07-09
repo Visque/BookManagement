@@ -1,0 +1,15 @@
+# SECRET KEY SHOULD NOT BE SHARED WITH ANYONE
+# ADD the secret key here during production using DECOUPLE library.
+# Create a file named .env and store the SECRET_KEY in there FOR EG:-
+
+# in .env file :-
+
+# SECRET_KEY = 'your secret key in project_name.settings.py file'
+
+
+
+# In settings.py file :-
+
+# from decouple import config
+
+# SECRET_KEY = config("SECRET_KEY")     // this will replace the secret key with .env file.
