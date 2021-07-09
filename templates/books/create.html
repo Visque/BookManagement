@@ -4,8 +4,10 @@
 <div class="mb-3">
   <form action="/create" method="POST" class="text-center">
     <h1 class="mx-4 my-5">Enter the Book details: -</h1>
+  <div class="row d-flex justify-content-center">
     {% csrf_token %}
-    <div class="mx-4 my-3">{{form.as_p}}</div>
+    <div class=" text-center " style="width: 350px">{{form.as_p}}</div>
+  </div>
     <input class="btn btn-outline-success" type="submit" value="Submit" />
 </div>
 {% if formFilled %}
@@ -27,4 +29,5 @@
     <div>Thank You.... Your form has been submitted</div>
   </div>
 </div>
+
 {% endif %} {% endblock body %}

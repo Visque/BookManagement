@@ -1,7 +1,45 @@
-{% extends 'base.html' %}
-
-{% block title %}Index{% endblock title %}
-
+{% extends 'base.html' %} {% block title %}Index{% endblock title %} 
 {% block body %}
+
+<div class="mx-4 my-4">
+  <ul>
+    <li>
+      <h2>
+        <p>Enter the books details on /create page.</p>
+      </h2>
+    </li>
+    <li>
+      <h2>
+        <p>View the books details on /display page.</p>
+      </h2>
+    </li>
+    <ul>
+      <li>
+        <h4>
+          <p>You can filter by Genre and Language of the Book</p>
+        </h4>
+      </li>
+    </ul>
+    <li>
+      <h2>
+        <p>View the books details on /admin page and add or create in the database aswell.</p>
+      </h2>
+    </li>
+    <ul>
+      <li>
+        <h4>
+          <p>To access the admin page you will have to create a superuser in django. Instructions to create that are written in the readme.md file </p>
+        </h4>
+      </li>
+    </ul>
+    <!-- <ul>
+      <li>
+        <h4>
+          <p></p>
+        </h4>
+      </li>
+    </ul> -->
+  </ul>
+</div>
 
 {% endblock body %}

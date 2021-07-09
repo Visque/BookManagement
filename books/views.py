@@ -38,6 +38,7 @@ def display(request):
     if request.method == 'POST':
         genreList = request.POST.get('genreSelected').strip().split(",")
         languageList = request.POST.get('languageSelected').strip().split(",")
+        print("genre: ", genreList, languageList)
         if genreList[0] == '':
             print("genre empty")
             attributes = languageList
@@ -61,7 +62,7 @@ def display(request):
                 for object in items:
                     searchList.append(object)
             else:
-                books = items
+                books = None
                 variables = {'books': books, 'genres': genres, 'languages': languages}
                 return render(request, 'books/display.html', context=variables)
         print("hahahahaha: ", searchList)
