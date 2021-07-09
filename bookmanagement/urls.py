@@ -18,6 +18,6 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
-    path('', include('books.urls')),
-    path('admin/', admin.site.urls),
+    path('', include('books.urls')),            # leads to home/index page
+    path('admin/', admin.site.urls),            # for admin priveleges
 ]

@@ -57,12 +57,12 @@ ROOT_URLCONF = 'bookmanagement.urls'
 
 # Manually added
 
-template_dir = BASE_DIR / "templates"
+template_dir = BASE_DIR / "templates"               # template folders absolute path
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [template_dir],
+        'DIRS': [template_dir],                                                 # adding template files abs path to a dictionary
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'bookmanagement.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {                               # using pre made sqlite3 db
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
@@ -125,11 +125,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'\
+STATIC_URL = '/static/'      
 
-static_dir = BASE_DIR / "static"
+static_dir = BASE_DIR / "static"                # static files absolute path
 
-STATICFILES_DIRS = [static_dir, ]
+STATICFILES_DIRS = [static_dir, ]               # adding static files abs path to a dictionary
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
