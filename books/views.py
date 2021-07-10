@@ -66,9 +66,7 @@ def display(request):                                                           
                 for object in items:
                     searchList.append(object)                                               # If True, add it to searchList
             else:                                                                           # True if no attributes matched and is returns nothing (None)
-                books = None
-                variables = {'books': books, 'genres': genres, 'languages': languages}
-                return render(request, 'books/display.html', context=variables)                                                
+                continue                                                                    # CHANGE #2
         searchset = set(searchList)                                                         # Since the matched objects were added to a list (searchList), duplicates may be present so the list is converted to a set to remove the duplicates
         variables = {'books': searchset, 'genres': genres, 'languages': languages}
         return render(request, 'books/display.html', context=variables)
